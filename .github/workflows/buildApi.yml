@@ -1,0 +1,52 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  workflow_dispatch:
+  
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+# defaults:
+  # run:
+    # working-directory: src
+
+jobs:
+  # build-dlls:
+    # uses: martin-technology-group/core/.github/workflows/workflowStep.yml@beta
+    # with:
+  
+  build-api:
+    ##needs: build-dlls
+    runs-on: ubuntu-latest
+
+    steps:               
+    
+    - run: ls ${{ github.workspace }}
+    
+    - name: Download simple-dlls
+      uses: actions/download-artifact@v4
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }} ##github.token }}## 
+        repository: mkenyon2/SimpleDll
+        name: simple-dlls
+        path: /opt
+      
+    - run: ls -R ${{ github.workspace }}
+    
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build MyAPI.sln --configuration Release --no-restore
+    #- name: Test
+    #  run: dotnet test --no-build --verbosity normal
