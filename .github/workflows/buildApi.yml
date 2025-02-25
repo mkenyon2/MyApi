@@ -23,8 +23,7 @@ jobs:
     steps:               
     
     - run: ls -R ${{ github.workspace }}
-    - run: ls -R ./
-    - run: ls -R ../
+    - run: ls -R ../../
     
     - name: Download simple-dlls
       ##uses: actions/download-artifact@v4      
