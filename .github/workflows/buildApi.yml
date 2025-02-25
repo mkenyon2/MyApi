@@ -16,12 +16,8 @@ on:
     # working-directory: src
 
 jobs:
-  # build-dlls:
-    # uses: martin-technology-group/core/.github/workflows/workflowStep.yml@beta
-    # with:
   
   build-api:
-    ##needs: build-dlls
     runs-on: ubuntu-latest
 
     steps:               
@@ -42,6 +38,8 @@ jobs:
         path: /opt
       
     - run: ls -R ${{ github.workspace }}
+      
+    - run: ls -R 
     
     - uses: actions/checkout@v4
     
