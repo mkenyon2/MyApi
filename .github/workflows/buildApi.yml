@@ -36,7 +36,7 @@ jobs:
         search_artifacts: true
         workflow_search: true
         name: simple-dlls
-        path: ./SimpleDll/SimpleDll/bin/Debug/net8.0
+        path: ../SimpleDll/SimpleDll/bin/Debug/net8.0
         
     - run: ls -R ${{ github.workspace }}
     
