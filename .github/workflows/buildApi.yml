@@ -20,7 +20,10 @@ jobs:
   build-api:
     runs-on: ubuntu-latest
 
-    steps:               
+    steps:         
+    - uses: actions/checkout@v4   
+        
+    - run: ls -R ${{ github.workspace }}   
     
     - name: Download simple-dlls
       ##uses: actions/download-artifact@v4      
@@ -34,9 +37,7 @@ jobs:
         workflow_search: true
         name: simple-dlls
         path: ./SimpleDll/SimpleDll/bin/Debug/net8.0
-    
-    - uses: actions/checkout@v4
-    
+        
     - run: ls -R ${{ github.workspace }}
     
     - name: Setup .NET
