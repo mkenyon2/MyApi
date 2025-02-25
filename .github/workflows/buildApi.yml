@@ -22,7 +22,7 @@ jobs:
 
     steps:               
     
-    - run: ls ${{ github.workspace }}
+    - run: ls -R ${{ github.workspace }}
     
     - name: Download simple-dlls
       ##uses: actions/download-artifact@v4      
@@ -38,8 +38,8 @@ jobs:
         path: /opt
       
     - run: ls -R ${{ github.workspace }}
-      
-    - run: ls -R 
+    
+    - run: ls -R /opt
     
     - uses: actions/checkout@v4
     
@@ -52,6 +52,6 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build ./MyAPI.sln --configuration Release --no-restore
+      run: dotnet build MyAPI.csproj --configuration Release --no-restore
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
