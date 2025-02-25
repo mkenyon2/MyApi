@@ -33,12 +33,11 @@ jobs:
         search_artifacts: true
         workflow_search: true
         name: simple-dlls
-        path: /opt
+        path: ./SimpleDll/SimpleDll/bin/Debug/net8.0
     
     - uses: actions/checkout@v4
     
     - run: ls -R ${{ github.workspace }}
-    - run: ls -R ./ ##../../
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
