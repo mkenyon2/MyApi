@@ -37,6 +37,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }} ##github.token }}## 
         repo: mkenyon2/SimpleDll
         search_artifacts: true
+        workflow_search: true
         name: simple-dlls
         path: /opt
       
