@@ -22,9 +22,6 @@ jobs:
 
     steps:               
     
-    - run: ls -R ${{ github.workspace }}
-    - run: ls -R ../../
-    
     - name: Download simple-dlls
       ##uses: actions/download-artifact@v4      
       uses: dawidd6/action-download-artifact@v8
@@ -37,12 +34,11 @@ jobs:
         workflow_search: true
         name: simple-dlls
         path: /opt
-      
-    ##- run: ls -R ${{ github.workspace }}
-    
-    ##- run: ls -R /opt
     
     - uses: actions/checkout@v4
+    
+    - run: ls -R ${{ github.workspace }}
+    - run: ls -R ../../
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
