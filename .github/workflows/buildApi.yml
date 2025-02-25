@@ -29,10 +29,14 @@ jobs:
     - run: ls ${{ github.workspace }}
     
     - name: Download simple-dlls
-      uses: actions/download-artifact@v4
+      ##uses: actions/download-artifact@v4      
+      uses: dawidd6/action-download-artifact@v8
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }} ##github.token }}## 
-        repository: mkenyon2/SimpleDll
+        # github-token: ${{ secrets.GITHUB_TOKEN }} ##github.token }}## 
+        # repository: mkenyon2/SimpleDll
+        github_token: ${{ secrets.GITHUB_TOKEN }} ##github.token }}## 
+        repo: mkenyon2/SimpleDll
+        search_artifacts: true
         name: simple-dlls
         path: /opt
       
