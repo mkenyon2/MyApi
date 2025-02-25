@@ -1,3 +1,5 @@
 ﻿.vs
 MyApi/bin
 MyApi/obj
+src/obj
+src/bin
